@@ -170,6 +170,8 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <!-- kamu -->
+    <geospark.version>1.2.0</geospark.version>
   </properties>
 
   <repositories>

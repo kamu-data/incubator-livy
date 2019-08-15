@@ -29,6 +29,8 @@ import org.apache.spark.sql.hive.HiveContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.datasyslab.geosparksql.utils.GeoSparkSQLRegistrator;
+
 public class SparkEntries {
 
   private static final Logger LOG = LoggerFactory.getLogger(SparkEntries.class);
@@ -84,6 +86,9 @@ public class SparkEntries {
               sparksession = builder.getOrCreate();
               LOG.info("Created Spark session.");
             }
+
+            LOG.info("Registering GeoSpark UDTs / UDFs");
+            GeoSparkSQLRegistrator.registerAll(sparksession);
           } catch (Exception e) {
             LOG.warn("SparkSession is not supported", e);
             throw e;

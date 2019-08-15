@@ -68,6 +68,15 @@
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- kamu -->
+    <dependency>
+      <groupId>org.apache.sedona</groupId>
+      <artifactId>sedona-python-adapter-3.0_2.12</artifactId>
+      <version>${sedona.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>

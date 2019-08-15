@@ -175,6 +175,8 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <!-- kamu -->
+    <sedona.version>1.0.1-incubating</sedona.version>
   </properties>
 
   <repositories>

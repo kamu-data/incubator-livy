@@ -28,6 +28,8 @@ import org.apache.spark.sql.types.StructType;
 
 import org.apache.livy.JobContext;
 
+import org.datasyslab.geosparksql.utils.GeoSparkSQLRegistrator;
+
 /**
  * State related to one Thrift session. One instance of this class is stored in the session's
  * shared object map for each Thrift session that connects to the backing Livy session.
@@ -77,6 +79,8 @@ class ThriftSessionState {
     this.sessionId = sessionId;
     this.statements = new ConcurrentHashMap<>();
     this.spark = ctx.<SparkSession>sparkSession().newSession();
+
+    GeoSparkSQLRegistrator.registerAll(this.spark);
   }
 
   SparkSession spark() {

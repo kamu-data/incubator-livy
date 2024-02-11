@@ -9,14 +9,19 @@ Kamu is building its own version of Livy for two reasons:
 
 First clone the repo and make sure you're on `kamu` branch.
 
+Clean command:
+```sh
+mvn clean -Pthriftserver -Pspark3 -Pscala-2.12 -DskipITs -DskipTests
+```
+
 Build command:
 ```sh
-mvn package -Pthriftserver -Pspark-3.0 -Pspark.version=3.0.0 -Pscala.version=2.12.13 -Pscala.binary.version=2.12 -DskipITs -DskipTests
+mvn package -Pthriftserver -Pspark3 -Pscala-2.12 -DskipITs -DskipTests
 ```
 ... this will take a while.
 
 Package will be produced under:
 
 ```sh
-./assembly/target/apache-livy-{version}-kamu-bin.zip
+./assembly/target/apache-livy-{version}-bin.zip
 ```

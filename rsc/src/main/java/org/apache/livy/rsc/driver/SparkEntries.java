@@ -87,8 +87,18 @@ public class SparkEntries {
               LOG.info("Created Spark session.");
             }
 
+            // KAMU
             LOG.info("Registering Sedona UDTs / UDFs");
             SedonaSQLRegistrator.registerAll(sparksession);
+
+            // See: https://github.com/kamu-data/kamu-engine-spark/issues/10
+            LOG.info("Patching jackson config");
+            com.fasterxml.jackson.core.StreamReadConstraints.overrideDefaultStreamReadConstraints(
+              com.fasterxml.jackson.core.StreamReadConstraints
+                .builder()
+                .maxStringLength(Integer.MAX_VALUE)
+                .build()
+            );
           } catch (Exception e) {
             LOG.warn("SparkSession is not supported", e);
             throw e;

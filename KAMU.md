@@ -7,6 +7,23 @@ Kamu is building its own version of Livy for two reasons:
 
 ## Building the fork
 
+To install Java & Scala we recommend using [SdkMan](https://sdkman.io/). Install the tool itself and then you can use following versions of components:
+
+```bash
+sdk use java  17.0.10-oracle
+sdk use maven 3.9.6
+sdk use sbt   1.9.8
+sdk use scala 2.12.18
+```
+
+Install Python 2.7:
+
+```sh
+pyenv install 2.7.18
+pyenv shell 2.7.18
+pip install pytest-runner flake8
+```
+
 First clone the repo and make sure you're on `kamu` branch.
 
 Clean command:

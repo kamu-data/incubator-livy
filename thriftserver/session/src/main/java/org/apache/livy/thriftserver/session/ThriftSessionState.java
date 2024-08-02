@@ -80,7 +80,16 @@ class ThriftSessionState {
     this.statements = new ConcurrentHashMap<>();
     this.spark = ctx.<SparkSession>sparkSession().newSession();
 
+    // KAMU
     SedonaSQLRegistrator.registerAll(this.spark);
+
+    // See: https://github.com/kamu-data/kamu-engine-spark/issues/10
+    com.fasterxml.jackson.core.StreamReadConstraints.overrideDefaultStreamReadConstraints(
+      com.fasterxml.jackson.core.StreamReadConstraints
+        .builder()
+        .maxStringLength(Integer.MAX_VALUE)
+        .build()
+    );
   }
 
   SparkSession spark() {
